@@ -1,6 +1,6 @@
 {
   "name": "stock-indicator-mapper",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A function given to map on an array of objects containing daily stock EOD data.",
   "main": "build/stockIndicatorMappers.js",
   "scripts": {
