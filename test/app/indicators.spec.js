@@ -11,7 +11,6 @@ import rocCaluclation from '../../app/indicators/rocIndicator.js';
 import adxIndicator from '../../app/indicators/adxIndicator.js';
 import highChannelIndicator from '../../app/indicators/highChannelIndicator.js';
 import fullWeekIndicators from '../../app/indicators/fullWeekIndicators.js';
-import dailyGrind from '../../app/dailyGrind.js';
 
 const parseConfig = {
   header: true,
@@ -19,7 +18,6 @@ const parseConfig = {
 
 const parsed = Papa.parseFiles('./data/MMM-daily-2006-2009.csv', parseConfig);
 const rawData = parsed.data;
-console.log(rawData)
 const dailyData = dataSetup(rawData);
 
 const parsed2 = Papa.parseFiles('./data/MMM-daily-2003-2009.csv', parseConfig);
@@ -184,36 +182,3 @@ describe('Full Day of indicator calculations', () => {
     // console.log(actual[50]);
   });
 });
-
-// DailyGrind
-//
-describe('dailyGrind Function', () => {
-  it('Should work', () => {
-    const mapperFunction = dailyGrind();
-    const actual = dailyData2.map(mapperFunction);
-    // console.log(actual.slice(150, 165));
-    // console.log(actual.slice(190, 250));
-    expect(actual).to.be.an.instanceof(List);
-    expect(actual.first()).to.be.a('object');
-    // console.log(actual.get(5))
-
-    // console.log(actual.get(1114));
-    // console.log(actual.get(1115));
-    // console.log(actual.get(1116));
-    // console.log(actual.get(1120));
-    // console.log(actual.get(1125));
-    console.log(actual.get(actual.size - 10));
-    console.log(actual.get(actual.size - 6));
-    console.log(actual.get(actual.size - 5));
-    console.log(actual.get(actual.size - 4));
-    console.log(actual.get(actual.size - 3));
-    console.log(actual.get(actual.size - 2));
-    console.log(actual.get(actual.size - 1));
-    console.log(actual.get(actual.size));
-    // console.log(actual.get(778));
-    // console.log(actual.get(788));
-    // console.log(actual.get(391));
-    // console.log(actual.get(498));
-  });
-});
-

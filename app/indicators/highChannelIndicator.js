@@ -1,6 +1,6 @@
 import { Map, List } from 'immutable';
 
-import round from 'lodash/round';
+import _ from 'lodash';
 
 /**
  * Daily indicator
@@ -20,7 +20,7 @@ function highChannelIndicator(timePeriod) {
       // then drop the oldest price
       channelRange = channelRange.shift();
     }
-    const highChannel = round(channelRange.max(), 2);
+    const highChannel = _.round(channelRange.max(), 2);
 
     // return the highest value
     return Map({ date, highChannel });

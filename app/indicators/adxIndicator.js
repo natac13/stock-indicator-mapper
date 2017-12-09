@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import round from 'lodash/round';
+import _ from 'lodash';
 import trueRange from './helper/trueRange.js';
 import plusDICalculation from './helper/plusDICalculation.js';
 import minusDICalculation from './helper/minusDICalculation.js';
@@ -119,7 +119,7 @@ function adxIndicator(timePeriod, adxLine) {
     minusDMSmoothPrevious = minusDMSmooth;
     adxPrevious = adx;
 
-    return Map({ date, adx: round(adx, 2) });  // removed adxLine
+    return Map({ date, adx: _.round(adx, 2) });  // removed adxLine
   };
 }
 

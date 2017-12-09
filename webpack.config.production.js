@@ -1,12 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-const buildPath = path.resolve(__dirname, 'app');
+const buildPath = path.resolve(__dirname, 'build');
 const entry = path.resolve(__dirname, 'app', 'index.js');
 
 module.exports = {
   context: __dirname,
-  devtool: 'inline-source-map',
   entry: [
     'babel-polyfill',
     entry,
@@ -50,6 +50,7 @@ module.exports = {
       root: 'regression',
     },
   },
+  target: 'node',
   resolve: {
     alias: { // can do import Main from Components/Main/; instead of full path
       App: path.resolve(__dirname, 'app'),
@@ -73,8 +74,11 @@ module.exports = {
     ],
   },
   plugins: [
+    // new UglifyJSPlugin({
+    //   sourecMap: true,
+    // }),
     new webpack.EnvironmentPlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
   ],
 };
